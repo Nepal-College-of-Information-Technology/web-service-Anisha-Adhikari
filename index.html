@@ -38,6 +38,7 @@
       color: white;
       text-decoration: none;
       font-size: 1.1rem;
+      cursor: pointer;
     }
 
     .hero {
@@ -55,6 +56,11 @@
       background-color: rgba(0,0,0,0.4);
       padding: 1rem 2rem;
       border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .hero h2:hover {
+      transform: scale(1.05);
     }
 
     .about, .menu, .visit {
@@ -81,6 +87,12 @@
       padding: 1rem;
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .menu-items div:hover {
+      background-color: #d7ccc8;
     }
 
     footer {
@@ -99,9 +111,9 @@
   </header>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#menu">Menu</a>
-    <a href="#visit">Visit Us</a>
+    <a onclick="scrollToSection('about')">About</a>
+    <a onclick="scrollToSection('menu')">Menu</a>
+    <a onclick="scrollToSection('visit')">Visit Us</a>
   </nav>
 
   <section class="hero">
@@ -116,10 +128,10 @@
   <section class="menu" id="menu">
     <h3>Our Menu</h3>
     <div class="menu-items">
-      <div><strong>Espresso</strong><br/>Rich & smooth single shot</div>
-      <div><strong>Latte</strong><br/>Classic comfort in a cup</div>
-      <div><strong>Cold Brew</strong><br/>Cool, slow-steeped perfection</div>
-      <div><strong>Choco-Chai</strong><br/>Spiced tea with a cocoa twist</div>
+      <div onclick="showItemDetail('Espresso')"><strong>Espresso</strong><br/>Rich & smooth single shot</div>
+      <div onclick="showItemDetail('Latte')"><strong>Latte</strong><br/>Classic comfort in a cup</div>
+      <div onclick="showItemDetail('Cold Brew')"><strong>Cold Brew</strong><br/>Cool, slow-steeped perfection</div>
+      <div onclick="showItemDetail('Choco-Chai')"><strong>Choco-Chai</strong><br/>Spiced tea with a cocoa twist</div>
     </div>
   </section>
 
@@ -131,6 +143,15 @@
   <footer>
     <p>&copy; 2025 Brew & Bloom. All rights reserved.</p>
   </footer>
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showItemDetail(itemName) {
+      alert('You selected ' + itemName + '! Come try it at Brew & Bloom.');
+    }
+  </script>
 </body>
 </html>
-
